@@ -1,7 +1,16 @@
 from pathlib import Path
+import sys
 
 import pandas as pd
 import streamlit as st
+
+ROOT_DIR = Path(__file__).resolve().parent
+
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+from src.data_loader import ensure_dataset
+from src.score_customers import main as generate_scores
 
 
 # =========================================================
@@ -19,6 +28,27 @@ RAW_DATA_PATH = (
 )
 
 FIGURES_DIR = REPORTS_DIR / "figures"
+
+@st.cache_data(show_spinner="Preparing customer churn data...")
+def prepare_dashboard_files():
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Download the dataset only if it is missing.
+    ensure_dataset()
+
+    # Generate customer risk scores only if they are missing.
+    if not SCORES_PATH.exists():
+        generate_scores()
+
+    # The model comparison report is required by the dashboard.
+    if not MODEL_PATH.exists():
+        raise FileNotFoundError(
+            "reports/model_comparison.csv is missing. "
+            "Run python src/train.py before launching the dashboard."
+        )
+
+    return True
+
 
 
 # =========================================================
@@ -87,6 +117,8 @@ def load_raw_data():
 
 
 try:
+    prepare_dashboard_files()
+
     df = load_scores()
     model_results = load_model_results()
     raw_df = load_raw_data()
@@ -94,7 +126,8 @@ try:
 except Exception as error:
     st.error(f"Unable to load project data: {error}")
     st.info(
-        "Check that the expected CSV files exist in data/raw and reports."
+        "Check the dataset download, model scoring, and "
+        "reports/model_comparison.csv setup."
     )
     st.stop()
 
