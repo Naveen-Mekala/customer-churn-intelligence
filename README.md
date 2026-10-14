@@ -146,6 +146,29 @@ python src/retention_analysis.py
 
 The scripts generate analysis reports, figures, model evaluation results, customer risk scores, and retention-priority outputs under `reports/`.
 
+
+## Live Demo
+
+**[Launch Customer Churn Intelligence](https://customer-churn-intelligence-kiem9sibaregiwqeaumw0m.streamlit.app)**
+
+## Dashboard Screenshots
+
+### 1. Executive Overview
+![Executive Overview](screenshots/dashboard-overview.png)
+
+### 2. Churn Insights
+![Churn Insights](screenshots/churn-insights.png)
+
+### 3. Customer Risk Explorer
+![Customer Risk Explorer](screenshots/customer-risk-explorer.png)
+
+### 4. Retention Prioritization
+![Retention Prioritization](screenshots/retention-prioritization.png)
+
+### 5. Model Performance
+![Model Performance](screenshots/model-performance.png)
+
+
 ## Dashboard Pages
 
 - **Executive Overview:** Customer counts, historical churn, and risk distribution.
