@@ -1,0 +1,35 @@
+
+CUSTOMER CHURN SCORING EVALUATION
+=================================
+
+Dataset: IBM Telco Customer Churn
+Training customers: 5634
+Test customers: 1409
+Decision threshold: 0.50
+
+Precision: 0.5085
+Recall: 0.8021
+PR-AUC: 0.6517
+ROC-AUC: 0.8400
+
+Confusion matrix:
+[[745 290]
+ [ 74 300]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+      Stayed       0.91      0.72      0.80      1035
+     Churned       0.51      0.80      0.62       374
+
+    accuracy                           0.74      1409
+   macro avg       0.71      0.76      0.71      1409
+weighted avg       0.80      0.74      0.76      1409
+
+
+Important limitations:
+- These predictions are for a held-out test split.
+- The 0.50 threshold is a baseline, not a business-optimized threshold.
+- Risk categories are illustrative probability bands.
+- Historical churn prediction does not prove that an intervention
+  will prevent a customer from leaving.

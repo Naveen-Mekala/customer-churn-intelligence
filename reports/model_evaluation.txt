@@ -1,0 +1,51 @@
+CUSTOMER CHURN MODEL EVALUATION
+========================================
+Data split: 60% training, 20% validation, 20% testing
+Threshold selection: highest validation F1 among thresholds from 0.20 to 0.80
+
+IMPORTANT: Test results are for evaluation, not threshold selection.
+
+Model: Logistic Regression
+Selected threshold: 0.50
+Validation F1: 0.6374
+Test precision: 0.5174
+Test recall: 0.7968
+Test F1: 0.6274
+Test PR-AUC: 0.7090
+Test ROC-AUC: 0.8604
+Test confusion matrix:
+[[757 278]
+ [ 76 298]]
+Test classification report:
+              precision    recall  f1-score   support
+
+           0       0.91      0.73      0.81      1035
+           1       0.52      0.80      0.63       374
+
+    accuracy                           0.75      1409
+   macro avg       0.71      0.76      0.72      1409
+weighted avg       0.80      0.75      0.76      1409
+
+
+
+Model: Random Forest
+Selected threshold: 0.45
+Validation F1: 0.6251
+Test precision: 0.5293
+Test recall: 0.7727
+Test F1: 0.6283
+Test PR-AUC: 0.6721
+Test ROC-AUC: 0.8488
+Test confusion matrix:
+[[778 257]
+ [ 85 289]]
+Test classification report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.75      0.82      1035
+           1       0.53      0.77      0.63       374
+
+    accuracy                           0.76      1409
+   macro avg       0.72      0.76      0.72      1409
+weighted avg       0.80      0.76      0.77      1409
+

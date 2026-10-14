@@ -1,0 +1,18 @@
+CUSTOMER CHURN — EXPLORATORY DATA ANALYSIS
+
+Dataset shape: (7043, 22)
+Duplicate rows: 0
+Overall churn rate: 26.54%
+
+Churn rate by contract:
+Contract
+Month-to-month    0.427097
+One year          0.112695
+Two year          0.028319
+
+Churn rate by tenure group:
+TenureGroup
+0–12 months     0.474382
+13–24 months    0.287109
+25–48 months    0.203890
+49–72 months    0.095132
